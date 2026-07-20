@@ -5,7 +5,6 @@ import { Sparkles, Clock, ShieldCheck } from "lucide-react";
 import { Container } from "@/components/shared/SectionHeader";
 import { WhatsAppButton } from "@/components/shared/WhatsAppButton";
 import { CallButton } from "@/components/shared/WhatsAppButton";
-import { RatingStars } from "@/components/shared/RatingStars";
 
 export function FinalCTA() {
   return (
@@ -48,11 +47,6 @@ export function FinalCTA() {
               <div className="flex items-center gap-2">
                 <Clock className="h-4 w-4 text-amber-400" />
                 <span>Listos en minutos</span>
-              </div>
-              <div className="hidden h-4 w-px bg-stone-700 sm:block" />
-              <div className="flex items-center gap-2">
-                <RatingStars rating={5} size="sm" />
-                <span>4.9/5 de calificación</span>
               </div>
             </div>
           </motion.div>

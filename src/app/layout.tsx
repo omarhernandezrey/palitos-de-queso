@@ -93,9 +93,6 @@ export const metadata: Metadata = {
     description,
     images: [ogImage],
   },
-  verification: {
-    google: "placeholder-google-verification",
-  },
   category: "food",
 };
 
@@ -115,16 +112,6 @@ const jsonLd = {
         name: "Bogotá",
         addressCountry: "CO",
       },
-      sameAs: [
-        "https://instagram.com/palitosdequeso",
-        "https://facebook.com/palitosdequeso",
-        "https://tiktok.com/@palitosdequeso",
-        "https://youtube.com/@palitosdequeso",
-        "https://threads.net/@palitosdequeso",
-        "https://pinterest.com/palitosdequeso",
-        "https://x.com/palitosdequeso",
-        "https://linkedin.com/company/palitosdequeso",
-      ],
       contactPoint: {
         "@type": "ContactPoint",
         telephone: "+57-313-611-4707",
@@ -195,27 +182,6 @@ const jsonLd = {
           transitTimeLabel: "Coordinado por WhatsApp",
         },
       },
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.9",
-        reviewCount: "128",
-      },
-      review: [
-        {
-          "@type": "Review",
-          author: { "@type": "Person", name: "Mariana G." },
-          reviewRating: { "@type": "Rating", ratingValue: "5" },
-          reviewBody:
-            "Los mejores palitos de queso que he probado en Bogotá. Quedan crujientes y el queso se estira delicioso.",
-        },
-        {
-          "@type": "Review",
-          author: { "@type": "Person", name: "Carlos R." },
-          reviewRating: { "@type": "Rating", ratingValue: "5" },
-          reviewBody:
-            "Perfectos para los desayunos de mis hijos. Solo los frío y listo, súper prácticos.",
-        },
-      ],
     },
     {
       "@type": "FAQPage",

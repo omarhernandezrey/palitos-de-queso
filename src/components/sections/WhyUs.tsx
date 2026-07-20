@@ -28,7 +28,7 @@ export function WhyUs() {
           transition={{ duration: 0.7 }}
           className="mx-auto mt-16 max-w-4xl overflow-hidden rounded-3xl border border-stone-700 bg-stone-800/50 backdrop-blur-sm"
         >
-          <div className="grid grid-cols-3 border-b border-stone-700 bg-stone-800 p-5 text-sm font-bold uppercase tracking-wider text-stone-400">
+          <div className="hidden border-b border-stone-700 bg-stone-800 p-5 text-sm font-bold uppercase tracking-wider text-stone-400 sm:grid sm:grid-cols-3">
             <div>Característica</div>
             <div className="text-center text-amber-400">Nosotros</div>
             <div className="text-center">Opciones tradicionales</div>
@@ -40,13 +40,15 @@ export function WhyUs() {
                 initial={{ opacity: 0, x: -10 }}
                 animate={isVisible ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.4, delay: index * 0.08 }}
-                className="grid grid-cols-3 items-center p-5 transition-colors hover:bg-stone-700/30"
+                className="flex flex-col gap-3 p-5 transition-colors hover:bg-stone-700/30 sm:grid sm:grid-cols-3 sm:items-center sm:gap-0"
               >
                 <div className="font-medium text-stone-200">{row.feature}</div>
-                <div className="flex justify-center">
+                <div className="flex items-center justify-between gap-3 sm:justify-center">
+                  <span className="text-xs uppercase tracking-wider text-amber-400 sm:hidden">Nosotros</span>
                   <Status value={row.us} highlight />
                 </div>
-                <div className="flex justify-center">
+                <div className="flex items-center justify-between gap-3 sm:justify-center">
+                  <span className="text-xs uppercase tracking-wider text-stone-400 sm:hidden">Opciones tradicionales</span>
                   <Status value={row.others} />
                 </div>
               </motion.div>

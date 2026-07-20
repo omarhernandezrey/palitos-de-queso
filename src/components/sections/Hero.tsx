@@ -1,18 +1,12 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/shared/SectionHeader";
 import { WhatsAppButton, CallButton } from "@/components/shared/WhatsAppButton";
 import { TrustBadge } from "@/components/shared/TrustBadge";
-import { PremiumPlaceholder } from "@/components/shared/PremiumPlaceholder";
 import { BRAND, PRODUCT } from "@/lib/constants";
-
-const highlights = [
-  "Receta familiar tradicional",
-  "Queso costeño auténtico",
-  "Listos en minutos",
-];
 
 export function Hero() {
   return (
@@ -24,18 +18,28 @@ export function Hero() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(217,119,6,0.08),transparent_40%)]" />
 
       <Container>
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="grid grid-cols-2 gap-3 lg:grid-cols-5">
+          {/* div1 — announcement badge, full width */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="relative z-10"
+            transition={{ duration: 0.6 }}
+            className="relative z-10 col-span-2 lg:col-span-5"
           >
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-amber-100 px-4 py-2 text-sm font-semibold text-amber-700">
+            <div className="inline-flex w-fit items-center gap-2 rounded-full bg-amber-100 px-4 py-2 text-sm font-semibold text-amber-700">
               <span className="flex h-2 w-2 rounded-full bg-amber-600" />
               Entregas coordinadas en Bogotá
             </div>
-            <h1 className="text-balance text-4xl font-extrabold leading-[1.1] text-stone-900 sm:text-5xl lg:text-6xl xl:text-7xl">
+          </motion.div>
+
+          {/* div3 — title */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="relative z-10 col-span-2 mt-4 lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mt-0"
+          >
+            <h1 className="text-balance text-4xl font-extrabold leading-[1.1] text-stone-900 sm:text-5xl lg:text-6xl">
               El sabor de una
               <span className="relative mx-2 inline-block text-amber-600">
                 receta familiar
@@ -55,50 +59,75 @@ export function Hero() {
               </span>
               en tu congelador
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-stone-600 sm:text-xl">
+          </motion.div>
+
+          {/* div4 — description */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="relative z-10 col-span-2 mt-4 lg:col-span-2 lg:col-start-1 lg:row-start-3 lg:mt-0"
+          >
+            <p className="text-lg leading-relaxed text-stone-600 sm:text-xl">
               Palitos de queso artesanales congelados, elaborados con queso costeño y una tradición
-              de Montería. Crujientes por fuera, suaves por dentro. La solución perfecta para
-              familias ocupadas en Bogotá.
+              de Montería. Crujientes por fuera, suaves por dentro.
             </p>
+          </motion.div>
 
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
-              <WhatsAppButton variant="hero" label="Quiero mis palitos" />
-              <CallButton variant="secondary" label="Llamar ahora" />
-            </div>
-
-            <div className="mt-8 flex items-center gap-4 text-sm font-semibold text-stone-700">
-              <div className="rounded-2xl bg-white px-5 py-3 shadow-sm">
-                <span className="block text-2xl text-amber-600">{BRAND.price}</span>
-                <span className="text-stone-500">Bandeja de {PRODUCT.quantity} unidades</span>
-              </div>
-              <div className="flex flex-col gap-2">
-                {highlights.map((item) => (
-                  <div key={item} className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-amber-600" />
-                    <span>{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="mt-10">
-              <TrustBadge />
+          {/* div5 — price card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="relative z-10 col-span-2 mt-4 lg:col-span-2 lg:col-start-1 lg:row-start-4 lg:mt-0"
+          >
+            <div className="w-fit rounded-2xl bg-white px-5 py-3 shadow-sm">
+              <span className="block text-2xl font-bold text-amber-600">{BRAND.price}</span>
+              <span className="text-sm font-semibold text-stone-500">
+                Bandeja de {PRODUCT.quantity} unidades
+              </span>
             </div>
           </motion.div>
 
+          {/* div6 — WhatsApp CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.25 }}
+            className="relative z-10 mt-4 lg:col-start-1 lg:row-start-5 lg:mt-0"
+          >
+            <WhatsAppButton
+              variant="hero"
+              label="Quiero mis palitos"
+              shortLabel="Pedir ahora"
+              className="w-full justify-center"
+            />
+          </motion.div>
+
+          {/* div7 — Call CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="relative z-10 mt-4 lg:col-start-2 lg:row-start-5 lg:mt-0"
+          >
+            <CallButton variant="secondary" label="Llamar ahora" className="w-full justify-center" />
+          </motion.div>
+
+          {/* div2 — image, tall right block */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="relative"
+            className="relative col-span-2 mt-8 grid min-h-[300px] lg:col-span-3 lg:col-start-3 lg:row-span-4 lg:row-start-2 lg:mt-0 lg:min-h-[360px]"
           >
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] shadow-premium sm:aspect-square lg:aspect-[4/5]">
-              <PremiumPlaceholder
+            <div className="col-start-1 row-start-1 h-full w-full">
+              <Image
+                src="/images/logo-removebg-preview.png"
                 alt="Palitos de queso artesanales dorados y crujientes"
-                label="Fotografía gastronómica premium"
-                variant="warm"
-                icon="🧀"
-                className="absolute inset-0"
+                fill
+                priority
+                className="object-contain"
               />
             </div>
 
@@ -106,7 +135,7 @@ export function Hero() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.7, duration: 0.5 }}
-              className="absolute -left-4 top-12 rounded-2xl bg-white p-4 shadow-lg sm:-left-8 lg:-left-12"
+              className="col-start-1 row-start-1 -translate-x-4 translate-y-12 self-start justify-self-start rounded-2xl bg-white p-4 shadow-lg sm:-translate-x-8 lg:-translate-x-12"
             >
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-green-100 text-green-600">
@@ -118,28 +147,10 @@ export function Hero() {
                 </div>
               </div>
             </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.9, duration: 0.5 }}
-              className="absolute -bottom-4 right-4 rounded-2xl bg-stone-900 px-5 py-4 text-white shadow-xl sm:-bottom-6 sm:right-6"
-            >
-              <p className="text-sm font-medium text-stone-300">Calificación de clientes</p>
-              <div className="mt-1 flex items-center gap-2">
-                <span className="text-2xl font-bold">4.9</span>
-                <div className="flex">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <span key={i} className="text-amber-400">
-                      ★
-                    </span>
-                  ))}
-                </div>
-                <span className="text-sm text-stone-400">(128+)</span>
-              </div>
-            </motion.div>
           </motion.div>
         </div>
+
+        <TrustBadge className="relative z-10 mt-10 grid grid-cols-2 justify-items-center gap-3 sm:grid-cols-4" />
       </Container>
     </section>
   );

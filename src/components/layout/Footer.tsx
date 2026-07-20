@@ -1,22 +1,27 @@
 "use client";
 
-import { Phone, MessageCircle, MapPin, Mail, Clock } from "lucide-react";
+import Image from "next/image";
+import { Phone, MapPin, Mail, Clock } from "lucide-react";
 import { Container } from "@/components/shared/SectionHeader";
-import { SocialLinks } from "@/components/shared/SocialLinks";
+import { WhatsAppIcon } from "@/components/shared/WhatsAppButton";
 import { BRAND, NAV_LINKS } from "@/lib/constants";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-stone-900 text-stone-300">
+    <footer className="bg-stone-900 pb-24 text-stone-300 lg:pb-0">
       <Container className="py-16 lg:py-24">
-        <div className="grid gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-4">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-12 lg:gap-12">
+          <div className="col-span-2 lg:col-span-4">
             <div className="flex items-center gap-3">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-amber-600 to-yellow-400 text-xl shadow-lg">
-                🧀
-              </div>
+              <Image
+                src="/images/logo-removebg-preview.png"
+                alt="Logo Palitos de Queso"
+                width={48}
+                height={48}
+                className="h-12 w-12 object-contain"
+              />
               <div>
                 <span className="block text-xl font-bold text-white">Palitos de Queso</span>
                 <span className="text-sm text-stone-400">Bogotá</span>
@@ -26,9 +31,6 @@ export function Footer() {
               Palitos de queso artesanales congelados, elaborados con queso costeño y una receta
               familiar tradicional de Montería. Sabor, textura y practicidad en cada bocado.
             </p>
-            <div className="mt-6">
-              <SocialLinks iconClassName="h-5 w-5 text-stone-400 group-hover:text-amber-500" />
-            </div>
           </div>
 
           <div className="lg:col-span-2">
@@ -63,7 +65,7 @@ export function Footer() {
                   aria-label={`Escríbenos por WhatsApp al ${BRAND.phone}`}
                   className="flex items-center gap-3 text-stone-400 transition-colors hover:text-[#25D366]"
                 >
-                  <MessageCircle className="h-5 w-5" />
+                  <WhatsAppIcon className="h-5 w-5" />
                   <span>{BRAND.phone}</span>
                 </button>
               </li>
@@ -96,7 +98,7 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="lg:col-span-3">
+          <div className="col-span-2 lg:col-span-3">
             <h3 className="text-sm font-bold uppercase tracking-wider text-white">Cobertura</h3>
             <p className="mt-5 text-stone-400">
               Realizamos entregas coordinadas en Bogotá. Nos podemos encontrar en estaciones de

@@ -36,25 +36,13 @@ export const PRODUCT = {
   ],
 };
 
-export const SOCIAL = {
-  instagram: "https://instagram.com/palitosdequeso",
-  facebook: "https://facebook.com/palitosdequeso",
-  tiktok: "https://tiktok.com/@palitosdequeso",
-  youtube: "https://youtube.com/@palitosdequeso",
-  threads: "https://threads.net/@palitosdequeso",
-  pinterest: "https://pinterest.com/palitosdequeso",
-  x: "https://x.com/palitosdequeso",
-  linkedin: "https://linkedin.com/company/palitosdequeso",
-  googleMaps: "https://maps.google.com/?q=Bogotá,Colombia",
-};
-
 export const NAV_LINKS = [
   { label: "Inicio", href: "#inicio" },
   { label: "Beneficios", href: "#beneficios" },
   { label: "Preparación", href: "#preparacion" },
   { label: "Galería", href: "#galeria" },
+  { label: "Medallones", href: "#medallones" },
   { label: "Casos de uso", href: "#usos" },
-  { label: "Testimonios", href: "#testimonios" },
   { label: "Preguntas", href: "#preguntas" },
   { label: "Historia", href: "#historia" },
 ];
@@ -145,57 +133,6 @@ export const USE_CASES = [
   },
 ];
 
-export const TESTIMONIALS = [
-  {
-    name: "Mariana G.",
-    role: "Mamá de dos",
-    rating: 5,
-    comment:
-      "Los mejores palitos de queso que he probado en Bogotá. Quedan crujientes y el queso se estira delicioso. Mis hijos los piden todos los fines de semana.",
-    avatar: "MG",
-  },
-  {
-    name: "Carlos R.",
-    role: "Oficinista",
-    rating: 5,
-    comment:
-      "Perfectos para los desayunos de mis hijos. Solo los frío y listo, súper prácticos. Además, el sabor es auténtico, no como los de supermercado.",
-    avatar: "CR",
-  },
-  {
-    name: "Daniela S.",
-    role: "Emprendedora",
-    rating: 5,
-    comment:
-      "Llevo bandejas para la oficina y siempre quedan encantados. Se nota la calidad y la entrega fue muy puntual en la estación de TransMilenio.",
-    avatar: "DS",
-  },
-  {
-    name: "Andrés M.",
-    role: "Estudiante",
-    rating: 5,
-    comment:
-      "Para alguien que vive solo y no tiene tiempo de cocinar, esto es oro. Desayuno rápido, merienda, cena... sirven para todo.",
-    avatar: "AM",
-  },
-  {
-    name: "Laura P.",
-    role: "Anfitriona frecuente",
-    rating: 5,
-    comment:
-      "Cada vez que tengo visitas, saco una bandeja. En minutos tengo un pasabocas gourmet que sorprende a todo el mundo.",
-    avatar: "LP",
-  },
-  {
-    name: "Felipe T.",
-    role: "Papá primerizo",
-    rating: 5,
-    comment:
-      "Honestamente, no sabía que existían palitos de queso tan buenos. La textura es perfecta: crujientes por fuera y suaves por dentro.",
-    avatar: "FT",
-  },
-];
-
 export const FAQS = [
   {
     question: "¿Cuántas unidades trae la bandeja?",
@@ -249,15 +186,47 @@ export const COMPARISON: { feature: string; us: boolean; others: boolean | "part
   { feature: "Precio justo por calidad", us: true, others: false },
 ];
 
-export const GALLERY_IMAGES = [
-  { alt: "Palitos de queso crudos congelados en bandeja", label: "Crudos congelados" },
-  { alt: "Palitos de queso recién fritos y dorados", label: "Recién fritos" },
-  { alt: "Interior suave y cremoso de palito de queso", label: "Interior cremoso" },
-  { alt: "Bandeja de 20 palitos de queso artesanales", label: "Bandeja de 20 unidades" },
-  { alt: "Empaque artesanal de palitos de queso", label: "Empaque listo" },
-  { alt: "Primer plano de textura crujiente", label: "Textura crujiente" },
-  { alt: "Palitos de queso servidos en mesa", label: "Listos para servir" },
-  { alt: "Presentación premium de palitos de queso", label: "Presentación premium" },
+export const GALLERY_IMAGES: { alt: string; label: string; image?: string }[] = [
+  {
+    alt: "Palitos de queso crudos congelados en bandeja",
+    label: "Crudos congelados",
+    image: "/images/Crudos-congelados.jpeg",
+  },
+  {
+    alt: "Palitos de queso recién fritos y dorados",
+    label: "Recién fritos",
+    image: "/images/Recién-fritos.jpeg",
+  },
+  {
+    alt: "Interior suave y cremoso de palito de queso",
+    label: "Interior cremoso",
+    image: "/images/interior-cremoso.jpeg",
+  },
+  {
+    alt: "Bandeja de 20 palitos de queso artesanales",
+    label: "Bandeja de 20 unidades",
+    image: "/images/Crudos-congelados.jpeg",
+  },
+  {
+    alt: "Empaque artesanal de palitos de queso",
+    label: "Empaque listo",
+    image: "/images/enpaque-listo.jpeg",
+  },
+  {
+    alt: "Primer plano de textura crujiente",
+    label: "Textura crujiente",
+    image: "/images/textura-crujiente.jpeg",
+  },
+  {
+    alt: "Palitos de queso servidos en mesa",
+    label: "Listos para servir",
+    image: "/images/listos-para-servir.jpeg",
+  },
+  {
+    alt: "Presentación premium de palitos de queso",
+    label: "Presentación premium",
+    image: "/images/presentacion-premium.jpeg",
+  },
 ];
 
 export const VIDEOS = [
@@ -267,27 +236,7 @@ export const VIDEOS = [
     description: "Desde el congelador hasta el plato, sin descongelar.",
     youtubeId: "PLACEHOLDER_PREPARACION",
     thumbnail: "Preparación",
-  },
-  {
-    id: "video-fritura",
-    title: "El sonido de la fritura",
-    description: "Mira cómo doran hasta quedar perfectamente crujientes.",
-    youtubeId: "PLACEHOLDER_FRITURA",
-    thumbnail: "Fritura",
-  },
-  {
-    id: "video-servido",
-    title: "Servido y listo",
-    description: "La presentación ideal para compartir en familia.",
-    youtubeId: "PLACEHOLDER_SERVIDO",
-    thumbnail: "Servido",
-  },
-  {
-    id: "video-clientes",
-    title: "Lo dicen nuestros clientes",
-    description: "Testimonios reales de quienes ya los disfrutan.",
-    youtubeId: "PLACEHOLDER_CLIENTES",
-    thumbnail: "Clientes",
+    videoSrc: "/videos/del-congenlador-al-aceite.mp4",
   },
 ];
 

@@ -13,6 +13,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { Container, SectionHeader } from "@/components/shared/SectionHeader";
+import { WaveDivider } from "@/components/shared/WaveDivider";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { USE_CASES } from "@/lib/constants";
 
@@ -40,12 +41,13 @@ export function UseCases() {
           titleClassName="text-white"
         />
 
-        <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-16 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
           {USE_CASES.map((useCase, index) => (
             <UseCaseCard key={useCase.title} useCase={useCase} index={index} />
           ))}
         </div>
       </Container>
+      <WaveDivider fill="#ffffff" />
     </section>
   );
 }

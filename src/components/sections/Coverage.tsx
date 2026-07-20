@@ -42,7 +42,7 @@ export function Coverage() {
           description="No prometemos domicilios a todas partes. En cambio, ofrecemos honestidad, flexibilidad y un proceso simple para que recibas tu pedido."
         />
 
-        <div ref={ref} className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div ref={ref} className="mt-16 grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-4">
           {steps.map((step, index) => (
             <motion.div
               key={step.title}

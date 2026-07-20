@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Play } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { PremiumPlaceholder } from "./PremiumPlaceholder";
@@ -10,6 +10,7 @@ interface VideoPlayerProps {
   description: string;
   youtubeId: string;
   thumbnailLabel: string;
+  videoSrc?: string;
   className?: string;
 }
 
@@ -18,11 +19,19 @@ export function VideoPlayer({
   description,
   youtubeId,
   thumbnailLabel,
+  videoSrc,
   className,
 }: VideoPlayerProps) {
   const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
-  const isPlaceholder = youtubeId.startsWith("PLACEHOLDER");
+  const isPlaceholder = !videoSrc && youtubeId.startsWith("PLACEHOLDER");
+
+  const handlePlay = () => {
+    if (isPlaceholder) return;
+    setIsPlaying(true);
+    videoRef.current?.play();
+  };
 
   return (
     <div
@@ -32,19 +41,30 @@ export function VideoPlayer({
       )}
     >
       <div className="relative aspect-video w-full">
-        {!isPlaying || isPlaceholder ? (
+        {videoSrc && (
+          <video
+            ref={videoRef}
+            src={videoSrc}
+            title={title}
+            controls={isPlaying}
+            className="absolute inset-0 h-full w-full"
+          />
+        )}
+        {(!isPlaying || isPlaceholder) && (
           <>
-            <PremiumPlaceholder
-              alt={`Miniatura del video: ${title}`}
-              label={thumbnailLabel}
-              variant="dark"
-              icon="🎬"
-              className="absolute inset-0"
-            />
+            {!videoSrc && (
+              <PremiumPlaceholder
+                alt={`Miniatura del video: ${title}`}
+                label={thumbnailLabel}
+                variant="dark"
+                icon="🎬"
+                className="absolute inset-0"
+              />
+            )}
             <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/30 p-6 text-center transition-colors group-hover:bg-black/40">
               <button
                 type="button"
-                onClick={() => !isPlaceholder && setIsPlaying(true)}
+                onClick={handlePlay}
                 disabled={isPlaceholder}
                 aria-label={isPlaceholder ? `Video próximamente: ${title}` : `Reproducir ${title}`}
                 className="flex h-20 w-20 items-center justify-center rounded-full bg-white/95 text-amber-600 shadow-lg transition-transform duration-300 hover:scale-110 focus-visible:ring-4 focus-visible:ring-amber-400 focus-visible:ring-offset-4 disabled:opacity-60"
@@ -60,7 +80,8 @@ export function VideoPlayer({
               )}
             </div>
           </>
-        ) : (
+        )}
+        {isPlaying && !videoSrc && (
           <iframe
             src={`https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&rel=0&modestbranding=1`}
             title={title}

@@ -37,7 +37,7 @@ export function Benefits() {
           description="Diseñamos cada bandeja pensando en personas ocupadas que no quieren renunciar al sabor ni a la calidad."
         />
 
-        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-16 grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-4">
           {BENEFITS.map((benefit, index) => (
             <BenefitCard key={benefit.title} benefit={benefit} index={index} />
           ))}

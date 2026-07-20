@@ -52,8 +52,24 @@ export function SectionHeader({
   return (
     <div className={cn("mx-auto max-w-3xl", aligns[align], className)}>
       {eyebrow && (
-        <span className="mb-3 inline-block rounded-full bg-amber-100 px-4 py-1.5 text-sm font-semibold uppercase tracking-wider text-amber-700">
-          {eyebrow}
+        <span className="relative mb-4 inline-block">
+          <span className="relative z-10 inline-block -rotate-1 rounded-full bg-amber-100 px-4 py-1.5 text-sm font-semibold uppercase tracking-wider text-amber-700">
+            {eyebrow}
+          </span>
+          <svg
+            className="absolute -bottom-1.5 left-1/2 h-2 w-16 -translate-x-1/2 text-amber-400/70"
+            viewBox="0 0 64 8"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M1 5 Q16 1 32 5 T63 5"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+            />
+          </svg>
         </span>
       )}
       <h2

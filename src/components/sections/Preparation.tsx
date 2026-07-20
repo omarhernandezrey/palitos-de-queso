@@ -28,7 +28,7 @@ export function Preparation() {
         <div ref={ref} className="relative mt-16">
           <div className="absolute left-1/2 top-0 hidden h-full w-1 -translate-x-1/2 rounded-full bg-gradient-to-b from-amber-200 via-amber-400 to-amber-200 lg:block" />
 
-          <div className="grid gap-8 lg:grid-cols-2">
+          <div className="grid gap-4 sm:grid-cols-2 sm:gap-8">
             {PRODUCT.preparation.map((step, index) => {
               const Icon = iconMap[index] || Utensils;
               const isEven = index % 2 === 0;

@@ -1,13 +1,23 @@
 "use client";
 
 import { useState } from "react";
-import { MessageCircle, Phone, X } from "lucide-react";
+import { Phone, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { BRAND } from "@/lib/constants";
+
+export function WhatsAppIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+      <path d="M12.04 2.003C6.58 2.003 2.13 6.45 2.13 11.913c0 1.834.48 3.556 1.318 5.045L2 22l5.176-1.354a9.87 9.87 0 0 0 4.858 1.24h.005c5.46 0 9.91-4.447 9.91-9.91 0-2.647-1.03-5.135-2.902-7.006a9.85 9.85 0 0 0-7.007-2.967zm0 18.13h-.004a8.2 8.2 0 0 1-4.183-1.146l-.3-.178-3.113.815.831-3.037-.196-.312a8.19 8.19 0 0 1-1.257-4.362c0-4.535 3.69-8.225 8.226-8.225a8.17 8.17 0 0 1 5.816 2.412 8.17 8.17 0 0 1 2.407 5.818c0 4.535-3.69 8.215-8.227 8.215z" />
+    </svg>
+  );
+}
 
 interface WhatsAppButtonProps {
   variant?: "sticky" | "inline" | "hero" | "cta";
   label?: string;
+  shortLabel?: string;
   className?: string;
   message?: string;
 }
@@ -15,6 +25,7 @@ interface WhatsAppButtonProps {
 export function WhatsAppButton({
   variant = "inline",
   label = "Pedir por WhatsApp",
+  shortLabel,
   className,
   message = BRAND.whatsappMessage,
 }: WhatsAppButtonProps) {
@@ -24,7 +35,7 @@ export function WhatsAppButton({
 
   if (variant === "sticky") {
     return (
-      <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2">
+      <div className="fixed bottom-6 right-6 z-50 hidden flex-col items-end gap-2 lg:flex">
         {showTooltip && (
           <div className="mb-2 max-w-[220px] rounded-2xl bg-white px-4 py-3 text-sm font-medium text-stone-800 shadow-premium animate-in fade-in slide-in-from-bottom-2">
             <div className="flex items-start gap-2">
@@ -47,19 +58,14 @@ export function WhatsAppButton({
           onMouseEnter={() => setShowTooltip(true)}
           onMouseLeave={() => setShowTooltip(false)}
           className={cn(
-            "group relative flex items-center gap-3 overflow-hidden rounded-full bg-[#25D366] px-6 py-4 text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-green-500/30 focus-visible:ring-4 focus-visible:ring-green-400 focus-visible:ring-offset-4",
+            "group relative flex h-16 w-16 shrink-0 animate-bounce items-center justify-center overflow-hidden rounded-full bg-[#25D366] text-white shadow-lg [animation-duration:2.5s] hover:animate-none hover:scale-110 hover:shadow-xl hover:shadow-green-500/40 focus-visible:ring-4 focus-visible:ring-green-400 focus-visible:ring-offset-4 active:scale-95",
             className,
           )}
         >
+          <span className="absolute inset-0 animate-ping rounded-full bg-green-400/60 [animation-duration:2.5s]" />
           <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
-          <span className="relative flex h-10 w-10 items-center justify-center rounded-full bg-white/20">
-            <MessageCircle className="h-5 w-5 fill-current" />
-          </span>
-          <span className="relative hidden font-semibold sm:inline">{label}</span>
-          <span className="absolute -right-1 -top-1 flex h-3 w-3">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-300 opacity-75" />
-            <span className="relative inline-flex h-3 w-3 rounded-full bg-green-200" />
-          </span>
+          <WhatsAppIcon className="relative h-8 w-8 transition-transform duration-300 group-hover:scale-110" />
+          <span className="sr-only">{label}</span>
         </button>
       </div>
     );
@@ -70,11 +76,11 @@ export function WhatsAppButton({
 
   const variants = {
     inline:
-      "bg-[#25D366] px-6 py-3 text-white shadow-md hover:-translate-y-0.5 hover:shadow-lg hover:shadow-green-500/25 focus-visible:ring-green-400",
+      "bg-[#25D366] px-5 py-3 text-sm text-white shadow-md hover:-translate-y-0.5 hover:shadow-lg hover:shadow-green-500/25 focus-visible:ring-green-400 sm:px-6 sm:text-base",
     hero:
-      "gradient-brand px-8 py-4 text-lg text-white shadow-brand hover:shadow-2xl hover:shadow-amber-500/30 focus-visible:ring-amber-400",
+      "gradient-brand px-6 py-3.5 text-sm text-white shadow-brand hover:shadow-2xl hover:shadow-amber-500/30 focus-visible:ring-amber-400 sm:px-8 sm:py-4 sm:text-lg",
     cta:
-      "bg-[#25D366] px-10 py-5 text-lg text-white shadow-xl hover:-translate-y-1 hover:shadow-2xl hover:shadow-green-500/30 focus-visible:ring-green-400",
+      "bg-[#25D366] px-7 py-4 text-base text-white shadow-xl hover:-translate-y-1 hover:shadow-2xl hover:shadow-green-500/30 focus-visible:ring-green-400 sm:px-10 sm:py-5 sm:text-lg",
   };
 
   return (
@@ -85,8 +91,17 @@ export function WhatsAppButton({
       className={cn(baseStyles, variants[variant], className)}
     >
       <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
-      <MessageCircle className="relative h-5 w-5 fill-current" />
-      <span className="relative">{label}</span>
+      <WhatsAppIcon className="relative h-5 w-5 shrink-0" />
+      <span className="relative whitespace-nowrap">
+        {shortLabel ? (
+          <>
+            <span className="sm:hidden">{shortLabel}</span>
+            <span className="hidden sm:inline">{label}</span>
+          </>
+        ) : (
+          label
+        )}
+      </span>
     </button>
   );
 }
@@ -116,7 +131,7 @@ export function CallButton({
       href={`tel:${BRAND.phoneRaw}`}
       aria-label={`Llamar al ${BRAND.phone}`}
       className={cn(
-        "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-semibold transition-all duration-300 focus-visible:ring-4 focus-visible:ring-amber-400 focus-visible:ring-offset-4 hover:-translate-y-0.5",
+        "inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-all duration-300 focus-visible:ring-4 focus-visible:ring-amber-400 focus-visible:ring-offset-4 hover:-translate-y-0.5 sm:px-6 sm:text-base",
         styles[variant],
         className,
       )}

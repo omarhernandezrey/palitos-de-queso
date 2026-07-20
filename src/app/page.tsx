@@ -7,9 +7,9 @@ import { WhyUs } from "@/components/sections/WhyUs";
 import { Preparation } from "@/components/sections/Preparation";
 import { Conservation } from "@/components/sections/Conservation";
 import { Gallery } from "@/components/sections/Gallery";
+import { Medallones } from "@/components/sections/Medallones";
 import { Videos } from "@/components/sections/Videos";
 import { UseCases } from "@/components/sections/UseCases";
-import { Testimonials } from "@/components/sections/Testimonials";
 import { FAQ } from "@/components/sections/FAQ";
 import { Coverage } from "@/components/sections/Coverage";
 import { Story } from "@/components/sections/Story";
@@ -26,9 +26,9 @@ export default function HomePage() {
         <Preparation />
         <Conservation />
         <Gallery />
+        <Medallones />
         <Videos />
         <UseCases />
-        <Testimonials />
         <FAQ />
         <Coverage />
         <Story />
