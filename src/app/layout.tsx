@@ -24,7 +24,11 @@ export const viewport: Viewport = {
   themeColor: "#d97706",
 };
 
-const siteUrl = "https://palitosdequeso.co";
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "https://palitos-de-queso.vercel.app");
 const title = "Palitos de Queso Artesanales Congelados en Bogotá";
 const description =
   "Palitos de queso artesanales congelados, hechos con queso costeño y receta familiar de Montería. Crujientes por fuera, suaves por dentro. Entregas en Bogotá coordinadas por WhatsApp. Bandeja de 20 unidades por $15.000 COP.";
