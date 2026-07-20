@@ -32,7 +32,8 @@ const siteUrl =
 const title = "Palitos de Queso Artesanales Congelados en Bogotá";
 const description =
   "Palitos de queso artesanales congelados, hechos con queso costeño y receta familiar de Montería. Crujientes por fuera, suaves por dentro. Entregas en Bogotá coordinadas por WhatsApp. Bandeja de 20 unidades por $15.000 COP.";
-const ogImage = `${siteUrl}/opengraph-image`;
+const ogImage = `${siteUrl}/opengraph-image.png`;
+const twitterImage = `${siteUrl}/twitter-image.png`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -95,7 +96,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: [ogImage],
+    images: [twitterImage],
   },
   category: "food",
 };
