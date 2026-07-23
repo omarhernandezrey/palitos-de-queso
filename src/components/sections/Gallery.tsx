@@ -25,7 +25,7 @@ export function Gallery() {
         <SectionHeader
           eyebrow="Galería"
           title="Cada imagen cuenta una historia de sabor"
-          description="Espacios preparados para fotografía gastronómica profesional. Próximamente actualizaremos con las fotografías reales del producto."
+          description="Fotos reales de nuestros palitos: del congelador al aceite y a la mesa. Así se ve la textura crujiente por fuera y el interior cremoso que nos caracteriza."
         />
 
         <div className="mt-16 grid grid-cols-3 auto-rows-[110px] gap-2 sm:auto-rows-[160px] lg:auto-rows-[190px]">

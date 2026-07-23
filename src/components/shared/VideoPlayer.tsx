@@ -8,7 +8,7 @@ import { PremiumPlaceholder } from "./PremiumPlaceholder";
 interface VideoPlayerProps {
   title: string;
   description: string;
-  youtubeId: string;
+  youtubeId?: string;
   thumbnailLabel: string;
   videoSrc?: string;
   className?: string;
@@ -25,7 +25,7 @@ export function VideoPlayer({
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const isPlaceholder = !videoSrc && youtubeId.startsWith("PLACEHOLDER");
+  const isPlaceholder = !videoSrc && (!youtubeId || youtubeId.startsWith("PLACEHOLDER"));
 
   const handlePlay = () => {
     if (isPlaceholder) return;
@@ -81,7 +81,7 @@ export function VideoPlayer({
             </div>
           </>
         )}
-        {isPlaying && !videoSrc && (
+        {isPlaying && !videoSrc && youtubeId && (
           <iframe
             src={`https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&rel=0&modestbranding=1`}
             title={title}

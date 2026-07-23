@@ -30,7 +30,6 @@ export function Videos() {
               <VideoPlayer
                 title={video.title}
                 description={video.description}
-                youtubeId={video.youtubeId}
                 thumbnailLabel={video.thumbnail}
                 videoSrc={video.videoSrc}
               />

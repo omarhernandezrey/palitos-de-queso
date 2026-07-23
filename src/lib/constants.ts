@@ -5,13 +5,13 @@ export const BRAND = {
   phoneRaw: "+573136114707",
   whatsappMessage:
     "Hola. Vi la página web y quiero pedir una bandeja de palitos de queso.",
-  email: "hola@palitosdequeso.co",
+  email: "hernandezreyomar@gmail.com",
   price: "$15.000 COP",
   priceNumber: 15000,
   currency: "COP",
   quantity: 20,
   location: "Bogotá, Colombia",
-  url: "https://palitosdequeso.co",
+  url: "https://palitos-de-queso.vercel.app",
 };
 
 export const PRODUCT = {
@@ -234,7 +234,6 @@ export const VIDEOS = [
     id: "video-preparacion",
     title: "Preparación en 3 minutos",
     description: "Desde el congelador hasta el plato, sin descongelar.",
-    youtubeId: "PLACEHOLDER_PREPARACION",
     thumbnail: "Preparación",
     videoSrc: "/videos/del-congenlador-al-aceite.mp4",
   },
