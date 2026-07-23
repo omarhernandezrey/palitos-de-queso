@@ -81,10 +81,10 @@ export function Footer() {
               <li>
                 <a
                   href={`mailto:${BRAND.email}`}
-                  className="flex items-center gap-3 text-stone-400 transition-colors hover:text-amber-400"
+                  className="flex min-w-0 items-center gap-3 text-stone-400 transition-colors hover:text-amber-400"
                 >
-                  <Mail className="h-5 w-5" />
-                  <span>{BRAND.email}</span>
+                  <Mail className="h-5 w-5 shrink-0" />
+                  <span className="break-all">{BRAND.email}</span>
                 </a>
               </li>
               <li className="flex items-start gap-3 text-stone-400">
