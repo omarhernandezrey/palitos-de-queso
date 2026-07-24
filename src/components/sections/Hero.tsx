@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/shared/SectionHeader";
 import { WhatsAppButton, CallButton } from "@/components/shared/WhatsAppButton";
 import { TrustBadge } from "@/components/shared/TrustBadge";
@@ -131,22 +130,6 @@ export function Hero() {
               />
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.7, duration: 0.5 }}
-              className="col-start-1 row-start-1 -translate-x-4 translate-y-12 self-start justify-self-start rounded-2xl bg-white p-4 shadow-lg sm:-translate-x-8 lg:-translate-x-12"
-            >
-              <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-green-100 text-green-600">
-                  <ArrowRight className="h-5 w-5" />
-                </div>
-                <div>
-                  <p className="text-sm font-bold text-stone-900">Sin descongelar</p>
-                  <p className="text-xs text-stone-500">Del congelador al aceite</p>
-                </div>
-              </div>
-            </motion.div>
           </motion.div>
         </div>
 
