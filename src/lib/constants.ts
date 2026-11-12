@@ -38,6 +38,7 @@ export const PRODUCT = {
 
 export const NAV_LINKS = [
   { label: "Inicio", href: "#inicio" },
+  { label: "Promociones", href: "#promociones" },
   { label: "Beneficios", href: "#beneficios" },
   { label: "Preparación", href: "#preparacion" },
   { label: "Galería", href: "#galeria" },
@@ -45,6 +46,45 @@ export const NAV_LINKS = [
   { label: "Casos de uso", href: "#usos" },
   { label: "Preguntas", href: "#preguntas" },
   { label: "Historia", href: "#historia" },
+];
+
+export const PROMOTIONS = [
+  {
+    title: "Combo Doble",
+    description: "2 bandejas de palitos de queso (40 unidades en total).",
+    price: "$28.000 COP",
+    savings: "Ahorras $2.000",
+    icon: "Boxes",
+    whatsappMessage:
+      "Hola. Vi la página web y quiero pedir el Combo Doble: 2 bandejas de palitos de queso (40 unidades) por $28.000.",
+  },
+  {
+    title: "Combo Triple",
+    description: "3 bandejas de palitos de queso (60 unidades en total).",
+    price: "$40.000 COP",
+    savings: "Ahorras $5.000",
+    icon: "PackagePlus",
+    whatsappMessage:
+      "Hola. Vi la página web y quiero pedir el Combo Triple: 3 bandejas de palitos de queso (60 unidades) por $40.000.",
+  },
+  {
+    title: "Combo Mixto",
+    description: "1 bandeja de palitos de queso (20 unidades) + 1 bandeja de medallones de queso con salchicha.",
+    price: "$28.000 COP",
+    savings: "Prueba los dos sabores",
+    icon: "UtensilsCrossed",
+    whatsappMessage:
+      "Hola. Vi la página web y quiero pedir el Combo Mixto: 1 bandeja de palitos de queso + 1 bandeja de medallones por $28.000.",
+  },
+  {
+    title: "Primera compra",
+    description: "10% de descuento en tu primer pedido, coordinado por WhatsApp.",
+    price: "10% OFF",
+    savings: "Solo tu primer pedido",
+    icon: "Percent",
+    whatsappMessage:
+      "Hola. Vi la página web y es mi primera vez pidiendo. Quiero aprovechar el 10% de descuento en mi primer pedido.",
+  },
 ];
 
 export const BENEFITS = [

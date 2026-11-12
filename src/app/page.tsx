@@ -2,6 +2,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/shared/WhatsAppButton";
 import { Hero } from "@/components/sections/Hero";
+import { Promotions } from "@/components/sections/Promotions";
 import { Benefits } from "@/components/sections/Benefits";
 import { WhyUs } from "@/components/sections/WhyUs";
 import { Preparation } from "@/components/sections/Preparation";
@@ -21,6 +22,7 @@ export default function HomePage() {
       <Header />
       <main className="flex-1">
         <Hero />
+        <Promotions />
         <Benefits />
         <WhyUs />
         <Preparation />
